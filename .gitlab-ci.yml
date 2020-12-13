@@ -1,0 +1,27 @@
+image: node
+
+before_script:
+  - npm install
+  - npm install -g yarn
+
+stages:
+    - build
+    - test
+
+install dependencies:
+    stage: build
+    script:
+        - yarn install
+        - yarn build
+    artifacts:
+        expire_in: 1 hour
+        name: '${CI_COMMIT_SHA}'
+        paths:
+            - ./dist
+
+testing app:
+    stage: test
+    dependencies:
+        - Install dependencies
+    script:
+        - yarn test

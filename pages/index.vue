@@ -28,6 +28,7 @@ export default {}
 	display        : block;
 	font-weight    : 300;
 	font-size      : 100px;
+	margin         : 20px 0;
 	color          : #35495e;
 	letter-spacing : 1px;
 }
